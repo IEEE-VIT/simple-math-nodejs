@@ -2,7 +2,7 @@
 SimpleMath is a node.js REST API that does math for you. This repository was created to help deveopers get started with Open Source during [Hacktoberfest](https://hacktoberfest.digitalocean.com/)
 > NOTE: Check out `issues` labelled as `Hacktoberfest` and start contributing!
 
-Made with :heart: by IEEE-VIT
+Made with :heart: by [IEEE-VIT](https://ieeevit.com)
 
 Support Open Source by participating in [Hacktoberfest](https://hacktoberfest.digitalocean.com/):yellow_heart:
 
