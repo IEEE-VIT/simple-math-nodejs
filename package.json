@@ -1,0 +1,28 @@
+{
+  "name": "simplemath-nodejs",
+  "version": "1.0.0",
+  "description": "This is a simple Node.js REST API for beginners to contribute for Hacktoberfest. :)",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha ./test --recursive --timeout 15000 --no-deprecation",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "hacktoberfest",
+    "node.js",
+    "restapi"
+  ],
+  "author": "IEEE-VIT-Student-Branch",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "assert": "^2.0.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.2.0",
+    "should": "^13.2.3"
+  }
+}
