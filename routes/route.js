@@ -7,7 +7,9 @@ router.get('/check', (req, res) => {
 })
 
 router.post('add', (req, res) => {
-    // Add logic here
+    const {param1, param2} = req.body.data;
+    const sum = param1+param2;
+    res.send({result: sum})
 })
 
 module.exports = router;
