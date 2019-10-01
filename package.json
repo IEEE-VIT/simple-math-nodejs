@@ -22,6 +22,9 @@
     "assert": "^2.0.0",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
     "mocha": "^6.2.0",
     "should": "^13.2.3"
   }
