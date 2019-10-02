@@ -30,6 +30,15 @@ router.post("/factorial", (req, res) => {
     try {
         let result = parseInt(param1, 10);
 
+        if (result < 0) {
+            return res.json({
+                meta: {
+                    success: false,
+                    message: `${param1} is a negative number`,
+                    code: 400
+                }
+            });
+        }
         for (let counter = result - 1; counter > 0; counter--) {
             result *= counter;
         }
