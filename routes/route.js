@@ -24,4 +24,32 @@ router.post("/power", (req, res) => {
     });
 });
 
+router.post("/factorial", (req, res) => {
+    const { param1 } = req.body;
+
+    try {
+        let result = parseInt(param1, 10);
+
+        for (let counter = result - 1; counter > 0; counter--) {
+            result *= counter;
+        }
+        res.json({
+            result,
+            meta: {
+                success: true,
+                message: `Calculated ${param1} factorial`,
+                code: 200
+            }
+        });
+    } catch (err) {
+        res.json({
+            meta: {
+                success: false,
+                message: err.message,
+                code: 400
+            }
+        });
+    }
+});
+
 module.exports = router;
