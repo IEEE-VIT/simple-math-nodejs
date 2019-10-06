@@ -63,7 +63,6 @@ describe("----------START TEST FOR app.js----------", () => {
         .send({"data": {"param1": "9ssf", "param2": 2}})
         .end((err, res) => {
             res.statusCode.should.equal(400);
-            //res.body.result.should.equal(null);
             res.body.meta.success.should.equal(false);
             res.body.meta.message.should.equal("Bad request, format should be: {data: {param1: number, param2: degree}}");
             res.body.meta.code.should.equal(400);
@@ -71,4 +70,4 @@ describe("----------START TEST FOR app.js----------", () => {
         });
     });
     
-})
+});
