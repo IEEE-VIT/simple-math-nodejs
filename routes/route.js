@@ -60,4 +60,22 @@ router.post("/log", (req, res) => {
     });
 });
 
+router.post("/antilog", (req, res) => {
+
+    // param1 - Number
+    // param2 - base of the antilog. This is optional. If you don't put it, then, it's going to be "e" (2.718)
+
+    let param1 = req.body.param1;
+    let param2 = req.body.param2;
+
+    res.json({
+        result: param2 ? Math.pow(param2, param1) : Math.pow(Math.E, param1),
+        meta: {
+            success: true,
+            message: `Calculated antilog of ${param1} to the base ${param2}`,
+            code: 200
+        }
+    });
+});
+
 module.exports = router;
