@@ -43,5 +43,28 @@ describe("----------START TEST FOR app.js----------", () => {
         })
     })
 
+
+    it("Checks the POST /math/factorial", (done) => {
+        chai.request(app)
+        .post("/math/factorial")
+        .send({"param": 5})
+        .end((err, res) => {
+            if (err){
+                done(err)
+                process.exit(1)
+            } else {
+                res.body.result.should.be.a("number");
+                res.body.meta.success.should.be.a("boolean");
+                res.body.meta.message.should.be.a("string");
+                res.body.meta.code.should.be.a("number");
+
+                res.body.result.should.equal(120);
+                
+                
+                done()
+            }
+        })
+    })
+
     
 })
