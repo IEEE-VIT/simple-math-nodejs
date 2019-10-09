@@ -43,5 +43,49 @@ describe("----------START TEST FOR app.js----------", () => {
         })
     })
 
+    it("Checks the POST /math/nthroot", (done) => {
+        chai.request(app)
+        .post("/math/nthroot")
+        .send({"param1": 25, "param2": 2})
+        .end((err, res) => {
+            if (err){
+                done(err)
+                process.exit(1)
+            } else {
+                res.body.result.should.be.a("number");
+                res.body.meta.success.should.be.a("boolean");
+                res.body.meta.message.should.be.a("string");
+                res.body.meta.code.should.be.a("number");
+
+                res.body.result.should.equal(5);
+                
+                
+                done()
+            }
+        })
+    })
+
+
+    it("Checks the POST /math/log", (done) => {
+        chai.request(app)
+        .post("/math/log")
+        .send({"param1": 25, "param2": 5})
+        .end((err, res) => {
+            if (err){
+                done(err)
+                process.exit(1)
+            } else {
+                res.body.result.should.be.a("number");
+                res.body.meta.success.should.be.a("boolean");
+                res.body.meta.message.should.be.a("string");
+                res.body.meta.code.should.be.a("number");
+
+                res.body.result.should.equal(2);
+                
+                
+                done()
+            }
+        })
+    })
     
 })
