@@ -24,4 +24,36 @@ router.post("/power", (req, res) => {
     });
 });
 
+router.post("/factorial", (req, res) => {
+    let param = req.body.param;
+
+    if (param < 0) {
+
+        res.json({
+            result: NaN,
+            meta: {
+                success: false,
+                message: `Number should be greater than or equal to 0`,
+                code: 400
+            }
+        });
+
+    }
+
+    let fact = 1;
+
+    for (var i = 2; i <= param; i++) {
+        fact = fact * i;
+    }
+
+    res.json({
+        result: fact,
+        meta: {
+            success: true,
+            message: `Calculated factorial of ${param}`,
+            code: 200
+        }
+    });
+});
+
 module.exports = router;
