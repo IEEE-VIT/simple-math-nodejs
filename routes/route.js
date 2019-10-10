@@ -24,4 +24,18 @@ router.post("/power", (req, res) => {
     });
 });
 
+router.post('/modulo', (req, res) => {
+    const param1 = req.body.param1;
+    const param2 = req.body.param2;
+
+     res.json({ 
+        result: (param1 % param2 + param2) % param2,
+        meta: {
+            success: true,
+            message: `Calculated ${param1} modulo ${param2}`,
+            code: 200
+        }
+    });
+})
+
 module.exports = router;
