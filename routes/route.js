@@ -6,7 +6,7 @@ router.get('/check', (req, res) => {
     res.send("Congratulations! Your app works! :)");
 })
 
-router.get('/add', (req, res) => {
+router.post('/add', (req, res) => {
     // Add logic here
     if (req.body.x && req.body.y) {                                         //checking for existance both the numbers
         if ((!isNaN(req.body.x)) && (!isNaN(req.body.y))) {                 //checking for the values for both the numbers
