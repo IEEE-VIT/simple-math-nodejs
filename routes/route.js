@@ -85,4 +85,28 @@ router.post("/ceil", (req, res) => {
   }
 });
 
+router.post("/round", (req, res) => {
+    try {
+      const { param1 } = req.body;
+  
+      let result = Math.round(parseFloat(param1, 10));
+      res.json({
+        result,
+        meta: {
+          success: true,
+          message: `Rounded off ${param1}`,
+          code: 200
+        }
+      });
+    } catch (err) {
+      res.json({
+        meta: {
+          success: false,
+          message: err.message,
+          code: 400
+        }
+      });
+    }
+  });
+
 module.exports = router;
