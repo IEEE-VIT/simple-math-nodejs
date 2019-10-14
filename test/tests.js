@@ -7,6 +7,7 @@ const should = chai.should();
 chai.use(chaiHttp);
 
 describe("----------START TEST FOR app.js----------", () => {
+
   it("Checks if the App is working", done => {
     chai
       .request(app)
@@ -87,4 +88,33 @@ describe("----------START TEST FOR app.js----------", () => {
         }
       });
   });
+});
+
+it("Checks the POST /math/root with a valid request", (done) => {
+        chai.request(app)
+        .post("/math/root")
+        .send({"data": {"param1": 9, "param2": 2}})
+        .end((err, res) => {
+            res.statusCode.should.equal(200);
+            res.body.result.should.equal(3);
+            res.body.meta.success.should.equal(true);
+            res.body.meta.message.should.equal("Calculated root of 9 and degree 2");
+            res.body.meta.code.should.equal(200);
+            done();
+        });
+    });
+
+    it("Checks the POST /math/root with an invalid request", (done) => {
+        chai.request(app)
+        .post("/math/root")
+        .send({"data": {"param1": "9ssf", "param2": 2}})
+        .end((err, res) => {
+            res.statusCode.should.equal(400);
+            res.body.meta.success.should.equal(false);
+            res.body.meta.message.should.equal("Bad request, format should be: {data: {param1: number, param2: degree}}");
+            res.body.meta.code.should.equal(400);
+            done();
+        });
+    });
+    
 });
