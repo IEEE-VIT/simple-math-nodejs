@@ -2,7 +2,7 @@
 
 # Hacktoberfest, 2019 with IEEE-VIT Student Branch
 
-SimpleMath is a node.js REST API that does math for you. This repository was created to help deveopers get started with Open Source during [Hacktoberfest](https://hacktoberfest.digitalocean.com/)
+SimpleMath is a node.js REST API that does math for you. This repository was created to help developers get started with Open Source during [Hacktoberfest](https://hacktoberfest.digitalocean.com/)
 > NOTE: Check out `issues` labelled as `Hacktoberfest` and start contributing!
 
 Made with :heart: by [IEEE-VIT](https://ieeevit.com)
