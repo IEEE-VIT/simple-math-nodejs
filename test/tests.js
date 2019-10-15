@@ -1,158 +1,216 @@
 const chai = require("chai");
 const chaiHttp = require("chai-http");
 const app = require("../app");
-const assert = require('assert');
-const should = require('should');
+const assert = require("assert");
+const should = chai.should();
 
 chai.use(chaiHttp);
 
 describe("----------START TEST FOR app.js----------", () => {
-    it("Checks if the App is working", (done) => {
-        chai.request(app)
+
+    it("Checks if the App is working", done => {
+      chai
+        .request(app)
         .get("/math/check")
         .end((err, res) => {
-            if (err){
-                done(err)
-                process.exit(1)
-            } else {
-                res.text.should.equal("Congratulations! Your app works! :)");
-                done()
-            }
-        })
-    })
+          if (err) {
+            done(err);
+            process.exit(1);
+          } else {
+            res.text.should.equal("Congratulations! Your app works! :)");
+            done();
+          }
+        });
+    });
 
-    it("Checks the /mul route with both arguments as numbers", (done) => {
-        /* Sends post data as JSON,
-         * {
-         *   "x": 2,
-         *   "y": 7
-         * }
-         */
+  it("Checks the POST /math/mul", (done) => {
+    chai.request(app)
+      .post("/math/mul")
+      .send({'param1': 2, 'param2':7})
+      .end((err, res) => {
+        if (err) {
+          done(err);
+          process.exit(1);
+        } else {
+          res.body.result.should.be.a("number");
+          res.body.meta.success.should.be.a("boolean");
+          res.body.meta.message.should.be.a("string");
+          res.body.meta.code.should.be.a("number");
 
-        chai.request(app)
-        .post("/math/mul")
-        .send({'x': 2, 'y':7})
-        .end((err, res) => {
-            if (err) {
-                done(err);
-                process.exit(1);
-            } else {
-                res.text.should.equal("2 * 7 = 14");
-                done();
-            }
-        })
+          res.body.result.should.equal(14);
+          res.body.meta.success.should.equal(true);
+          res.body.meta.code.should.equal(200);
+          done();
+        }
+      })
 
-    })
+  })
 
-    it("Checks the /mul route with only x argument", (done) => {
-        /* Sends post data as JSON,
-         * {
-         *   "x": 2,
-         * }
-         */
+  it("Checks the POST /math/mul", (done) => {
+    chai.request(app)
+      .post("/math/mul")
+      .send({'param1': 2})
+      .end((err, res) => {
+        if (err) {
+          done(err);
+          process.exit(1);
+        } else {
+          res.body.meta.success.should.be.a("boolean");
+          res.body.meta.message.should.be.a("string");
+          res.body.meta.code.should.be.a("number");
 
-        chai.request(app)
-        .post("/math/mul")
-        .send({'x': 2})
-        .end((err, res) => {
-            if (err) {
-                done(err);
-                process.exit(1);
-            } else {
-                res.text.should.equal("Both arguments (x, y) must be provided.");
-                done();
-            }
-        })
+          res.body.meta.success.should.equal(false);
+          res.body.meta.code.should.equal(400);
+          done();
+        }
+      })
 
-    })
+  })
 
-    it("Checks the /mul route with only y argument", (done) => {
-        /* Sends post data as JSON,
-         * {
-         *   "y": 2,
-         * }
-         */
+  it("Checks the POST /math/mul", (done) => {
+    chai.request(app)
+      .post("/math/mul")
+      .send({'param2': 7})
+      .end((err, res) => {
+        if (err) {
+          done(err);
+          process.exit(1);
+        } else {
+          res.body.meta.success.should.be.a("boolean");
+          res.body.meta.message.should.be.a("string");
+          res.body.meta.code.should.be.a("number");
 
-        chai.request(app)
-        .post("/math/mul")
-        .send({'y': 2})
-        .end((err, res) => {
-            if (err) {
-                done(err);
-                process.exit(1);
-            } else {
-                res.text.should.equal("Both arguments (x, y) must be provided.");
-                done();
-            }
-        })
+          res.body.meta.success.should.equal(false);
+          res.body.meta.code.should.equal(400);
+          done();
+        }
+      })
+  })
 
-    })
+  it("Checks the POST /math/mul", (done) => {
+    chai.request(app)
+      .post("/math/mul")
+      .send({})
+      .end((err, res) => {
+        if (err) {
+          done(err);
+          process.exit(1);
+        } else {
+          res.body.meta.success.should.be.a("boolean");
+          res.body.meta.message.should.be.a("string");
+          res.body.meta.code.should.be.a("number");
 
-    it("Checks the /mul route without arguments", (done) => {
-        /* Sends post data as JSON,
-         * {
-         * }
-         */
+          res.body.meta.success.should.equal(false);
+          res.body.meta.code.should.equal(400);
+          done();
+        }
+      })
+  })
 
-        chai.request(app)
-        .post("/math/mul")
-        .send({})
-        .end((err, res) => {
-            if (err) {
-                done(err);
-                process.exit(1);
-            } else {
-                res.text.should.equal("Both arguments (x, y) must be provided.");
-                done();
-            }
-        })
+  it("Checks the POST /math/mul", (done) => {
+    chai.request(app)
+      .post("/math/mul")
+      .send({param1: 'p', param2: 7})
+      .end((err, res) => {
+        if (err) {
+          done(err);
+          process.exit(1);
+        } else {
+          res.body.meta.success.should.be.a("boolean");
+          res.body.meta.message.should.be.a("string");
+          res.body.meta.code.should.be.a("number");
 
-    })
+          res.body.meta.success.should.equal(false);
+          res.body.meta.code.should.equal(400);
+          done();
+        }
+      })
+  })
 
-    it("Checks the /mul route with x argument as NaN", (done) => {
-        /* Sends post data as JSON,
-         * {
-         *   "x": "p",
-         *   "y": 7
-         * }
-         */
+  it("Checks the POST /math/mul", (done) => {
+    chai.request(app)
+      .post("/math/mul")
+      .send({param1: 2, param2: 'p'})
+      .end((err, res) => {
+        if (err) {
+          done(err);
+          process.exit(1);
+        } else {
+          res.body.meta.success.should.be.a("boolean");
+          res.body.meta.message.should.be.a("string");
+          res.body.meta.code.should.be.a("number");
 
-        chai.request(app)
-        .post("/math/mul")
-        .send({'x': 'p', 'y':7})
-        .end((err, res) => {
-            if (err) {
-                done(err);
-                process.exit(1);
-            } else {
-                res.text.should.equal("Both arguments (x, y) must be numbers.");
-                done();
-            }
-        })
+          res.body.meta.success.should.equal(false);
+          res.body.meta.code.should.equal(400);
+          done();
+        }
+      })
+  })
 
-    })
 
-    it("Checks the /mul route with y argument as NaN", (done) => {
-        /* Sends post data as JSON,
-         * {
-         *   "x": 2,
-         *   "y": "p"
-         * }
-         */
+  it("Checks the POST /math/power", done => {
+    chai
+      .request(app)
+      .post("/math/power")
+      .send({ param1: 3, param2: 2 })
+      .end((err, res) => {
+        if (err) {
+          done(err);
+          process.exit(1);
+        } else {
+          res.body.result.should.be.a("number");
+          res.body.meta.success.should.be.a("boolean");
+          res.body.meta.message.should.be.a("string");
+          res.body.meta.code.should.be.a("number");
 
-        chai.request(app)
-        .post("/math/mul")
-        .send({'x': 2, 'y':'p'})
-        .end((err, res) => {
-            if (err) {
-                done(err);
-                process.exit(1);
-            } else {
-                res.text.should.equal("Both arguments (x, y) must be numbers.");
-                done();
-            }
-        })
+          res.body.result.should.equal(9);
 
-    })
+          done();
+        }
+      });
+  });
 
-})
+  it("Checks the POST /math/power", done => {
+    chai
+      .request(app)
+      .post("/math/factorial")
+      .send({ param1: 5 })
+      .end((err, res) => {
+        if (err) {
+          done(err);
+          process.exit(1);
+        } else {
+          res.body.result.should.be.a("number");
+          res.body.meta.success.should.be.a("boolean");
+          res.body.meta.message.should.be.a("string");
+          res.body.meta.code.should.be.a("number");
+
+          res.body.result.should.equal(120);
+
+          done();
+        }
+      });
+  });
+
+  it("Checks the POST /math/ceil", done => {
+    chai
+      .request(app)
+      .post("/math/ceil")
+      .send({ param1: 1.2 })
+      .end((err, res) => {
+        if (err) {
+          done(err);
+          process.exit(1);
+        } else {
+          res.body.result.should.be.a("number");
+          res.body.meta.success.should.be.a("boolean");
+          res.body.meta.message.should.be.a("string");
+          res.body.meta.code.should.be.a("number");
+
+          res.body.result.should.equal(2);
+
+          done();
+        }
+      });
+  });
+});
