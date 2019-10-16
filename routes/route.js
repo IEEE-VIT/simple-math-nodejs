@@ -5,6 +5,10 @@ const router = express.Router();
 router.get("/check", (req, res) => {
   res.send("Congratulations! Your app works! :)");
 });
+#arch651 did this change
+router.get("/hello", (req, res) => {
+  res.send("Hacktoberfest is cool");
+});
 
 router.post("add", (req, res) => {
   // Add logic here
