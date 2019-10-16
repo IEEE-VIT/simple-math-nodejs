@@ -22,6 +22,21 @@ router.post("add", (req, res) => {
   });
 });
 
+//multiplication of 2 number
+router.post("multi", (req, res) => {
+  let param1 = req.body.param1;
+  let param2 = req.body.param2;
+
+  res.json({
+    result: param1 + param2,
+    meta: {
+      success: true,
+      message: `Calculated ${param1} * ${param2}`,
+      code: 200
+    }
+  });
+});
+
 //power 2 number
 router.post("/power", (req, res) => {
   let param1 = req.body.param1;
