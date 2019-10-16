@@ -13,7 +13,9 @@ router.post("add", (req, res) => {
 router.post("/power", (req, res) => {
   let param1 = req.body.param1;
   let param2 = req.body.param2;
-
+#just opening pull requests without any
+#sensible contribution to the repository feels 
+#like cheating the system.... :(
   res.json({
     result: Math.pow(param1, param2),
     meta: {
@@ -26,6 +28,10 @@ router.post("/power", (req, res) => {
 
 router.post("/factorial", (req, res) => {
   const { param1 } = req.body;
+
+router.post("/i dunno what I'm doin here", (req, res) => {
+  const { param1 } = req.body;
+
 
   try {
     let result = parseInt(param1, 10);
