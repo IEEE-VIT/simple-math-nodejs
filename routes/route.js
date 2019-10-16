@@ -8,7 +8,9 @@ router.get("/check", (req, res) => {
 
 router.post("add", (req, res) => {
   // Add logic here
-});
+})
+
+//THIS IS JUST FOR HACKTOBERFEST'19 .
 
 router.post("/power", (req, res) => {
   let param1 = req.body.param1;
