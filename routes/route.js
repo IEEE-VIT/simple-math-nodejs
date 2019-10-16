@@ -3,11 +3,25 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/check", (req, res) => {
-  res.send("Congratulations! Your app works! :)");
+  try{
+    res.send("Congratulations! Your app works! :)");
+  } catch (e) {
+    res.status(400).send(e)
+  }
 });
 
-router.post("add", (req, res) => {
-  // Add logic here
+router.post("/add", (req, res) => {
+  let param1 = req.body.param1;
+  let param2 = req.body.param2;
+
+  res.json({
+    result: param1+param2,
+    meta: {
+      success: true,
+      message: `Addition of ${param1} with ${param2}`,
+      code: 200
+    }
+  });
 });
 
 router.post("/power", (req, res) => {
