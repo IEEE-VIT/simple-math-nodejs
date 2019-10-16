@@ -4,6 +4,8 @@ const router = express.Router();
 
 router.get("/check", (req, res) => {
   res.send("Congratulations! Your app works! :)");
+  router.get("/check", (req, res) => {
+  res.send("Congratulations! Your app works! :)");
 });
 
 router.post("add", (req, res) => {
