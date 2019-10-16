@@ -1,10 +1,13 @@
-const chai = require("chai");
-const chaiHttp = require("chai-http");
-const app = require("../app");
-const assert = require("assert");
-const should = chai.should();
+var chai = require("chai");
+var chaiHttp = require("chai-http");
+var app = require("../app");
+var assert = require("assert");
+var should = chai.should();
 
 chai.use(chaiHttp);
+
+// REST Used for calculation
+
 
 describe("----------START TEST FOR app.js----------", () => {
   it("Checks if the App is working", done => {

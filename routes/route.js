@@ -1,15 +1,28 @@
-const express = require("express");
+var  express = require("express");
+var router = express.Router();
 
-const router = express.Router();
 
+//check the running status of the app
 router.get("/check", (req, res) => {
   res.send("Congratulations! Your app works! :)");
 });
 
+// addition 2 numbers
 router.post("add", (req, res) => {
-  // Add logic here
+  let param1 = req.body.param1;
+  let param2 = req.body.param2;
+
+  res.json({
+    result:param1+ param2,
+    meta: {
+      success: true,
+      message: `Calculated ${param1} + ${param2}`,
+      code: 200
+    }
+  });
 });
 
+//power 2 number
 router.post("/power", (req, res) => {
   let param1 = req.body.param1;
   let param2 = req.body.param2;
@@ -24,6 +37,8 @@ router.post("/power", (req, res) => {
   });
 });
 
+
+//factorial 2 number
 router.post("/factorial", (req, res) => {
   const { param1 } = req.body;
 
@@ -61,6 +76,7 @@ router.post("/factorial", (req, res) => {
   }
 });
 
+//calcuate ceil value
 router.post("/ceil", (req, res) => {
   try {
     const { param1 } = req.body;
