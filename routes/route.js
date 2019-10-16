@@ -5,6 +5,9 @@ const router = express.Router();
 router.get("/check", (req, res) => {
   res.send("Congratulations! Your app works! :)");
 });
+router.get("/See ya", (req, res) => {
+  res.send("Welcome to hacktoberfest! :)");
+});
 
 router.post("add", (req, res) => {
   // Add logic here
