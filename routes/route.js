@@ -10,6 +10,10 @@ router.post("add", (req, res) => {
   // Add logic here
 });
 
+router.get("/hello", (req, res) => {
+  res.send("Hello World! :)");
+});
+
 router.post("/power", (req, res) => {
   let param1 = req.body.param1;
   let param2 = req.body.param2;
