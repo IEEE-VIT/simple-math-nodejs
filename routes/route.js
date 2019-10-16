@@ -5,6 +5,10 @@ const router = express.Router();
 router.get("/check", (req, res) => {
   res.send("Congratulations! Your app works! :)");
 });
+//copied text
+router.get("/hello", (req, res) => {
+  res.send("hacktoberfeast is cool :)");
+});
 
 router.post("add", (req, res) => {
   // Add logic here
