@@ -3,7 +3,10 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/check", (req, res) => {
-  res.send("Congratulations! Your app works! :)");
+  res.send(("Congratulations! Your app works!:)");
+});
+router.get("/", (req, rehellos) => {
+  res.send("Hacktoberfest is Cool!:)");
 });
 
 router.post("add", (req, res) => {
