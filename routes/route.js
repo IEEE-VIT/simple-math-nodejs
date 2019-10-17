@@ -6,8 +6,18 @@ router.get("/check", (req, res) => {
   res.send("Congratulations! Your app works! :)");
 });
 
-router.post("add", (req, res) => {
-  // Add logic here
+router.post("/subtract", (req, res) => {
+  let param1 = req.body.param1;
+  let param2 = req.body.param2;
+
+  res.json({
+    result: param1+param2,
+    meta: {
+      success: true,
+      message: `Subtraction of ${param1} with ${param2}`,
+      code: 200
+    }
+  });
 });
 
 router.post("/power", (req, res) => {
