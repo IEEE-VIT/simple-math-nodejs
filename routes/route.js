@@ -149,4 +149,23 @@ router.post("/round", (req, res) => {
   }
 });
 
+router.post("/floor", (req, res) => {
+  try {
+    const { param1 } = req.body;
+
+    let result = Math.floor(parseFloat(param1, 10));
+    res.json({
+      result: result,
+        success: true,
+        statusCode: 200
+    });
+  } catch (err) {
+    res.json({
+        success: false,
+        err: err.message,
+        statusCode: 400
+    });
+  }
+});
+
 module.exports = router;
