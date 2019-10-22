@@ -106,4 +106,28 @@ router.post("/sigmoid", (req,resp)=>{
   }
 });
 
+router.post("/arraySum", (req,resp)=>{
+  try{
+    const {param1}=req.body;
+    
+    var sum=0, i;
+
+    for(i=0;i<param1.length;i++){
+      sum+=param1[i];
+    }
+
+    resp.json({
+      statusCode: 200,
+      result: sum,
+      success: true
+    });
+  } catch(err) {
+    resp.json({
+      success: false,
+      statusCode: 400,
+      err: err.message
+    });
+  }
+});
+
 module.exports = router;
