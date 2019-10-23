@@ -9,7 +9,7 @@ router.get("/check", (req, res) => {
 router.post("add", (req, res) => {
   // Add logic here
 });
-
+// hacktoberfest2019
 router.post("/power", (req, res) => {
   let darthvader = req.body.darthvader;
   let param2 = req.body.param2;
@@ -49,7 +49,7 @@ router.post("/factorial", (req, res) => {
         message: `Calculated ${darthvader} factorial`,
         code: 200
       }
-    });
+    }); //hacktoberfest2019
   } catch (err) {
     res.json({
       meta: {
