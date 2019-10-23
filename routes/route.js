@@ -4,6 +4,7 @@ const router = express.Router();
 
 router.get("/check", (req, res) => {
   res.send(("Congratulations! Your app works!:)");
+  res.send(("Hacktober Fest");
 });
 router.get("/", (req, rehellos) => {
   res.send("Hacktoberfest is Cool! :-)");
