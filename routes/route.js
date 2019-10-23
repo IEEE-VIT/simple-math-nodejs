@@ -139,13 +139,63 @@ router.post("/areaOfRectangle", (req, res) => {
   try{
     const { param1, param2 } = req.body;
 
-    let result = parseFloat(param2, 10) * parseFloat(param1, 10);
+    let result = parseFloat(param1, 10) * parseFloat(param2, 10);
+    console.log(result)
+    res.json({
+      result,
+      meta: {
+        success:true,
+        message: `Calculated area of rectangle with sides ${param1, param2}`,
+        code: 200
+      }
+    });
+  } catch (err) {
+    res.json({
+      meta: {
+        success: false,
+        message: err.message,
+        code: 400
+      }
+    });
+  }
+});
+
+router.post("/areaOfSquare", (req, res) => {
+  try{
+    const { param1 } = req.body;
+
+    let result = Math.pow(parseFloat(param1, 10),2);
 
     res.json({
       result,
       meta: {
         success:true,
-        message: `Calculated area of rectangle with sides ${param1}`,
+        message: `Calculated area of square with side ${param1}`,
+        code: 200
+      }
+    });
+  } catch (err) {
+    res.json({
+      meta: {
+        success: false,
+        message: err.message,
+        code: 400
+      }
+    });
+  }
+});
+
+router.post("/areaOfTriangle", (req, res) => {
+  try{
+    const { param1, param2 } = req.body;
+
+    let result = 0.5* parseFloat(param1, 10) * parseFloat(param2, 10);
+    console.log(result)
+    res.json({
+      result,
+      meta: {
+        success:true,
+        message: `Calculated area of rectangle with sides ${param1, param2}`,
         code: 200
       }
     });

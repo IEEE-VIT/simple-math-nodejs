@@ -135,8 +135,8 @@ describe("----------START TEST FOR app.js----------", () => {
   it("Checks the POST /math/areaOfRectangle", done => {
     chai
       .request(app)
-      .post("/math/power")
-      .send({ param1: 3, param2: 2 })
+      .post("/math/areaOfRectangle")
+      .send({ param1: 2, param2: 3})
       .end((err, res) => {
         if (err) {
           done(err);
@@ -148,6 +148,50 @@ describe("----------START TEST FOR app.js----------", () => {
           res.body.meta.code.should.be.a("number");
 
           res.body.result.should.equal(6);
+
+          done();
+        }
+      });
+  });
+
+  it("Checks the POST /math/areaOfSquare", done => {
+    chai
+      .request(app)
+      .post("/math/areaOfSquare")
+      .send({ param1: 1 })
+      .end((err, res) => {
+        if (err) {
+          done(err);
+          process.exit(1);
+        } else {
+          res.body.result.should.be.a("number");
+          res.body.meta.success.should.be.a("boolean");
+          res.body.meta.message.should.be.a("string");
+          res.body.meta.code.should.be.a("number");
+
+          res.body.result.should.equal(1);
+
+          done();
+        }
+      });
+  });
+
+  it("Checks the POST /math/areaOfTriangle", done => {
+    chai
+      .request(app)
+      .post("/math/areaOfTriangle")
+      .send({ param1: 1, param2 : 2})
+      .end((err, res) => {
+        if (err) {
+          done(err);
+          process.exit(1);
+        } else {
+          res.body.result.should.be.a("number");
+          res.body.meta.success.should.be.a("boolean");
+          res.body.meta.message.should.be.a("string");
+          res.body.meta.code.should.be.a("number");
+
+          res.body.result.should.equal(1);
 
           done();
         }
