@@ -8,6 +8,7 @@ router.get("/check", (req, res) => {
 
 router.post("add", (req, res) => {
   // Add logic here
+  res.send("sum can be printed here");
 });
 // hacktoberfest2019
 router.post("/power", (req, res) => {
