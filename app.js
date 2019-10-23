@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require("body-parser");
 
 const app = express();
-const PORT = 5000;
+const PORT = 6000;
 
 app.use(bodyParser.json());
 app.use('/math', require('./routes/route'));
