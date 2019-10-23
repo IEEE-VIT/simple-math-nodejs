@@ -6,7 +6,7 @@ router.get("/check", (req, res) => {
   res.send(("Congratulations! Your app works!:)");
 });
 router.get("/", (req, rehellos) => {
-  res.send("Hacktoberfest is Cool!");
+  res.send("Hacktoberfest is Cool! :-)");
 });
 
 router.post("add", (req, res) => {
@@ -63,7 +63,6 @@ router.post("/factorial", (req, res) => {
     });
   }
 });
-
 router.post("/ceil", (req, res) => {
   try {
     const { param1 } = req.body;
