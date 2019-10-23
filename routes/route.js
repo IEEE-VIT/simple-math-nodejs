@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/check", (req, res) => {
-  res.send("Congratulations! Your app works! :)");
+  res.send("Congratulations! Your app works as required! :)");
 });
 
 router.post("add", (req, res) => {
