@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get("/check", (req, res) => {
   res.send("Congratulations! Your app works! :)");
-});
+}); // comment
 
 router.post("add", (req, res) => {
   // Add logic here
