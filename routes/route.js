@@ -211,5 +211,30 @@ router.post("/areaOfTriangle", (req, res) => {
 });
 
 
+router.post("/areaOfEllipse", (req, res) => {
+  try{
+    const { param1, param2 } = req.body;
+
+    let result = Math.PI * parseFloat(param1, 10) * parseFloat(param2, 10);
+    console.log(result)
+    res.json({
+      result,
+      meta: {
+        success:true,
+        message: `Calculated area of rectangle with sides ${param1, param2}`,
+        code: 200
+      }
+    });
+  } catch (err) {
+    res.json({
+      meta: {
+        success: false,
+        message: err.message,
+        code: 400
+      }
+    });
+  }
+});
+
 
 module.exports = router;
