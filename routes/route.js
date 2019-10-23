@@ -8,6 +8,7 @@ router.get("/check", (req, res) => {
 
 router.post("add", (req, res) => {
   // Add logic here
+  res.send("i want freeeee tshirt and swags");
 });
 
 router.post("/power", (req, res) => {
