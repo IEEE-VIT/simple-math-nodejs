@@ -3,8 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/check", (req, res) => {
-  res.send("Congratulations! Your app works! :)");
-});
+  res.send("HACKYOBER FEST ROCKS"):
 
 router.post("add", (req, res) => {
   // Add logic here
