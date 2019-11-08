@@ -3,7 +3,12 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/check", (req, res) => {
-  res.send("Congratulations! Your app works! :)");
+  res.send(("Congratulations! Your app works!:)");
+  res.send(("Hacktober Fest");
+  res.send(("Free Stuff");
+});
+router.get("/", (req, rehellos) => {
+  res.send("Hacktoberfest is Cool! :-)");
 });
 
 router.post("add", (req, res) => {
@@ -60,7 +65,6 @@ router.post("/factorial", (req, res) => {
     });
   }
 });
-
 router.post("/ceil", (req, res) => {
   try {
     const { param1 } = req.body;
