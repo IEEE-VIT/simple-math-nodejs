@@ -9,6 +9,9 @@ router.get("/check", (req, res) => {
 router.post("add", (req, res) => {
   // Add logic here
 });
+router.get("/hello", (req, res) => {
+  res.send("hactober is cool :)");
+});
 
 router.post("/power", (req, res) => {
   let param1 = req.body.param1;
