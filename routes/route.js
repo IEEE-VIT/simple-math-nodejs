@@ -5,10 +5,14 @@ const router = express.Router();
 router.get("/check", (req, res) => {
   res.send("Congratulations! Your app works! :)");
 });
+router.get("/hello", (req, res) => {
+  res.send("HACTOBERFEST IS COOL:)");
+});
 
 router.post("add", (req, res) => {
   // Add logic here
 });
+
 
 router.post("/power", (req, res) => {
   let param1 = req.body.param1;
