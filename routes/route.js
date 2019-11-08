@@ -6,6 +6,10 @@ router.get("/check", (req, res) => {
   res.send("Congratulations! Your app works! :)");
 });
 
+router.get("/hello", (req, res) => {
+  res.send("Hacktober fest is awesome!");
+});
+
 router.post("add", (req, res) => {
   // Add logic here
 });
@@ -83,6 +87,12 @@ router.post("/ceil", (req, res) => {
       }
     });
   }
+
+
+#console.log(Math.exp(0));
+#console.log(Math.exp(1));
+#console.log(Math.exp(-1));
+#console.log(Math.exp(2));
 });
 
 router.post("/floor", (req, res) => {
