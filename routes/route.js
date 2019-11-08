@@ -8,6 +8,18 @@ router.get("/check", (req, res) => {
 
 router.post("add", (req, res) => {
   // Add logic here
+  let param1 = req.body.param1;
+  let param2 = req.body.param2;
+
+  res.json({
+    result: Math.pow(param1, param2),
+    meta: {
+      success: true,
+      message: `Calculated ${param1} + ${param2}`,
+      code: 200
+    }
+  });
+
 });
 
 router.post("/power", (req, res) => {
