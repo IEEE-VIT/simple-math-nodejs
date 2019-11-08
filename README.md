@@ -30,6 +30,15 @@ $ npm start
 5. To run the test suite, execute the following command:
 ```bash
 $ npm run test
+
+## Dependencies
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "assert": "^2.0.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.2.0",
+    "should": "^13.2.3"
 ```
 
 ## Contributing
