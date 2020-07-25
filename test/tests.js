@@ -135,7 +135,7 @@ describe("----------START TEST FOR app.js----------", () => {
   it("Checks the POST /math/areaOfRectangle", done => {
     chai
       .request(app)
-      .post("/math/power")
+      .post("/math/areaOfRectangle")
       .send({ param1: 3, param2: 2 })
       .end((err, res) => {
         if (err) {
