@@ -7,7 +7,28 @@ router.get("/check", (req, res) => {
 });
 
 router.post("add", (req, res) => {
-  // Add logic here
+try{
+    const { param1 } = req.body;
+    const { param2 } = req.body;
+    let result = param1 + param2;
+
+    res.json({
+      result,
+      meta: {
+        success:true,
+        message: `Calculated addition of two numbers ${param1} & ${param2}`,
+        code: 200
+      }
+    });
+  } catch (err) {
+    res.json({
+      meta: {
+        success: false,
+        message: err.message,
+        code: 400
+      }
+    });
+  }
 });
 
 router.post("/power", (req, res) => {
