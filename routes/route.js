@@ -159,7 +159,39 @@ router.post("/areaOfRectangle", (req, res) => {
     });
   }
 });
+// This code defines an HTTP POST route that calculates the nth root
+//  of a given number, handling potential errors and responding with the
+//   result or an error message in a JSON format.
+router.post("/nthRoot", (req, res) => {
+  try {
+    const { param1, param2 } = req.body;
+    const base = parseFloat(param1);
+    const n = parseFloat(param2);
 
+    if (n === 0) {
+      throw new Error("Cannot calculate the 0-th root.");
+    }
+
+    const result = Math.pow(base, 1 / n);
+
+    res.json({
+      result,
+      meta: {
+        success: true,
+        message: `Calculated the ${n}-th root of ${param1}`,
+        code: 200
+      }
+    });
+  } catch (err) {
+    res.json({
+      meta: {
+        success: false,
+        message: err.message,
+        code: 400
+      }
+    });
+  }
+});
 
 
 module.exports = router;
